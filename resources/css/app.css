@@ -1,0 +1,64 @@
+/* Fancy Card Styling */
+
+.metric-card {
+    margin-bottom: 20px;
+    /* Add space below each card */
+    padding: 20px;
+    /* Add padding inside the card */
+    border-radius: 15px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    /* Gradient background */
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Add a subtle border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    /* Lift the card on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Add a stronger shadow on hover */
+}
+
+.metric-card .card-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #d1d5db;
+    /* Light gray for the title */
+}
+
+.metric-card .card-value {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+    /* White for the value */
+}
+
+.metric-card .card-change {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.text-success {
+    color: #28a745 !important;
+    /* Green for positive changes */
+}
+
+.text-danger {
+    color: #dc3545 !important;
+    /* Red for negative changes */
+}
+
+.text-info {
+    color: #17a2b8 !important;
+    /* Blue for purchases */
+}
+
+.text-primary {
+    color: #007bff !important;
+    /* Dark blue for net profit */
+}

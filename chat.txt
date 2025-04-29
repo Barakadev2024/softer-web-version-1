@@ -1,0 +1,164 @@
+php artisan make:controller Admin/ExpenseController --model=App\Models\Expense --resource
+php artisan make:controller Admin/PurchaseController --model=App\Models\Purchase --resourcephp artisan make:controller SalesController --model=App\\Models\\Sale --resource
+php artisan make:controller SalesController --model=App\Models\Sale 
+php artisan route:clear
+php artisan config:clear
+php artisan cache:clear
+php artisan make:controller Admin/SalesController --model=App\Models\Sale 
+php artisan make:controller Admin/EmployeeController --model=App\Models\User
+
+$table->foreignIdFor(Company::class);
+            $table->date('date');
+            $table->time('time');
+            $table->string('qr_code');
+            $table->string('product_name');
+            $table->string('organisation_name');
+            $table->integer('quantity');
+            $table->decimal('buying_price');
+
+
+
+
+why the data in sales section are not displayed on the softer-web in sales and i only see in database i want just like company when details are filled they should appear on the sales section not on database only i want to be seen
+
+
+
+
+
+
+
+// status 
+->display(function ($status) {
+            return $status == 1 ? 'Active' : 'Inactive' ;
+        })->sortable();
+
+
+
+
+
+
+
+        //homecontroller
+        <?php
+
+namespace App\Admin\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Models\company;
+use App\Models\User;
+use Encore\Admin\Controllers\Dashboard;
+use Encore\Admin\Facades\Admin;
+use Encore\Admin\Layout\Column;
+use Encore\Admin\Layout\Content;
+use Encore\Admin\Layout\Row;
+use Encore\Admin\Widgets\Box;
+
+class HomeController extends Controller
+{
+    public function index(Content $content)
+    {
+
+        $su = Admin::user();    
+        $company = company::find($su->company_id);
+        return $content
+            ->title( $company->name. " -Dashboard")
+            ->description('Hello' . $su->name)
+            ->row(function (Row $row) {
+$row->column(3, function (Column $column) {
+    $count = User::where('company_id', Admin::user()->company_id)->count();
+    $box = new Box('Sales','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+    $box->content('Total Sales: 1000');
+    $box->style('success');
+    $box->solid();
+    $column->append($box);
+            });
+            $row->column(3, function (Column $column) {
+                $count = User::where('company_id', Admin::user()->company_id)->count();
+                $box = new Box('Expenses','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+                $box->content('Total expenses: 1000');
+                $box->style('success');
+                $box->solid();
+                $column->append($box);
+    });
+    $row->column(3, function (Column $column) {
+        $count = User::where('company_id', Admin::user()->company_id)->count();
+        $box = new Box('Purchases','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+        $box->content('Total purchases: 1000');
+        $box->style('success');
+        $box->solid();
+        $column->append($box);
+});
+    });
+}
+}
+
+
+
+
+
+
+
+
+modify homecontroller for user/admin and super admin
+<?php
+namespace App\Admin\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Models\company;
+use App\Models\User;
+use Encore\Admin\Controllers\Dashboard;
+use Encore\Admin\Facades\Admin;
+use Encore\Admin\Layout\Column;
+use Encore\Admin\Layout\Content;
+use Encore\Admin\Layout\Row;
+use Encore\Admin\Widgets\Box;
+
+class HomeController extends Controller
+{
+    public function index(Content $content)
+    {
+
+        $su = Admin::user();    
+        $company = company::find($su->company_id);
+        return $content
+            ->title( $company->name. " -Dashboard")
+            ->description('Hello' . $su->name)
+            ->row(function (Row $row) {
+$row->column(3, function (Column $column) {
+    $count = User::where('company_id', Admin::user()->company_id)->count();
+    $box = new Box('Sales','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+    $box->content('Total Sales: 1000');
+    $box->style('success');
+    $box->solid();
+    $column->append($box);
+            });
+            $row->column(3, function (Column $column) {
+                $count = User::where('company_id', Admin::user()->company_id)->count();
+                $box = new Box('Expenses','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+                $box->content('Total expenses: 1000');
+                $box->style('primary');
+                $box->solid();
+                $column->append($box);
+    });
+    $row->column(3, function (Column $column) {
+        $count = User::where('company_id', Admin::user()->company_id)->count();
+        $box = new Box('Purchases','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+        $box->content('Total purchases: 1000');
+        $box->style('info');
+        $box->solid();
+        $column->append($box);
+});
+$row->column(3, function (Column $column) {
+    $count = User::where('company_id', Admin::user()->company_id)->count();
+    $box = new Box('net profit','<h3 style="text-align:center; margin:0; font-size:40px">'. $count .'</h3>');
+    $box->content('net profit: 1000');
+    $box->style('warning');
+    $box->solid();
+    $column->append($box);
+});
+
+
+   
+}); // Close the row
+} // Close the index method
+} // Close the HomeController class
