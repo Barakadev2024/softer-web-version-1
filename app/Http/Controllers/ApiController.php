@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function  my_update(Request $r,$model){
+        die("good to go!");
+    }
 
     public function login(Request $r)
     {

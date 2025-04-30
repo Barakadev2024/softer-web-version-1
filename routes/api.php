@@ -10,6 +10,7 @@ use function Laravel\Prompts\Search;
 
 Route::post('auth/register',[ApiController::class,'register']);
 Route::post('auth/login',[ApiController::class,'login']);
+Route::post('api/{m}',[ApiController::class,'my_update']);
 /*
 |--------------------------------------------------------------------------
 | API Routes
