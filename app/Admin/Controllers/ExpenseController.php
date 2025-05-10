@@ -41,7 +41,7 @@ class ExpenseController extends AdminController
 
         $grid->disableBatchActions();
         $grid->quickSearch('product_name', 'quantity', 'selling_price', 'date', 'time', 'qr_code');
-        $grid->column('company_id', __('Company Id'))->sortable();
+        $grid->column('company_id', __('Company Id'))->sortable()->hide();
         $grid->column('date', __('Date'))->sortable();
         $grid->column('time', __('Time'))->sortable();
         $grid->column('qr_code', __('QR Code'))->sortable(); 

@@ -17,10 +17,6 @@ class AddTotalsToTables extends Migration
             $table->decimal('total_purchase', 15, 2)->nullable()->after('buying_price');
         });
 
-        // Add total_expense to the expenses table
-        Schema::table('expenses', function (Blueprint $table) {
-            $table->decimal('total_expense', 15, 2)->nullable()->after('buying_price');
-        });
     }
 
     public function down()

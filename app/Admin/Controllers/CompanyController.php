@@ -8,6 +8,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\DB;
 
 class CompanyController extends AdminController
 {
@@ -81,7 +82,7 @@ class CompanyController extends AdminController
     protected function form()
     {
         //get admin-role-users records
-        $admin_role_users=\DB::table('admin_role_users')->where([
+        $admin_role_users=DB::table('admin_role_users')->where([
            'role_id' => 2
         ])->get();
 
@@ -93,15 +94,17 @@ class CompanyController extends AdminController
             }
             $company_admins[$user->id] = $user->name.'-'.$user->id;
         }
-          dd($company_admins);
+          
         
         $form = new Form(new Company());
 
-        $form->select('owner_id', __('Company owner'))
+        $form->text('owner_id', __('owner_id'))
         ->options($company_admins)
         ->rules('required');
 
         $form->text('name', __('Company Name')) ->rules('required');
+    //company id
+        $form->text('company_id', __('Company ID'))->rules('required');
         $form->email('email', __('Email'));
         $form->image('logo', __('Logo'));
         $form->url('website', __('Website'));

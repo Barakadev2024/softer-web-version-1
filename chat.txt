@@ -15,7 +15,9 @@ $table->foreignIdFor(Company::class);
             $table->string('organisation_name');
             $table->integer('quantity');
             $table->decimal('buying_price');
-
+php artisan admin:make ChartjsController --Models=App\Chartjs
+php artisan admin:make ChartjsController --model=App\\Chartjs
+php artisan make:model Chartjs 
 
 
 
@@ -162,3 +164,47 @@ $row->column(3, function (Column $column) {
 }); // Close the row
 } // Close the index method
 } // Close the HomeController class
+
+
+
+
+
+
+
+
+
+
+
+Super Admin Dashboard Layout:
+
+Top Section (Key System Indicators):
+
+System Health: Prominent visual indicator (e.g., a circle or bar) that changes color based on overall system performance (Green: Good, Yellow: Warning, Red: Critical). Hovering provides details like server load, database status, uptime.
+Total Active Users: A clear count of users currently logged into the platform.
+New Users Today/This Week: Quick metrics on recent user growth.
+Pending Admin Actions: An alert with a count of tasks requiring super admin attention (e.g., user verifications, flagged content).
+Mid-Section (Aggregated Performance Snapshots):
+
+Overall Sales Performance: A concise chart (line or bar) showing the trend of total sales across all users over a selected period (e.g., last 30 days). A key metric like "Total Sales (Last 30 Days)" would be prominently displayed.
+Overall Expense Trends: Similar chart showing the trend of total expenses across all users. "Total Expenses (Last 30 Days)" would be highlighted.
+Overall Net Profit: A clear display of the calculated net profit based on aggregated sales and expenses.
+Top Performing Products (Across All Users): A ranked list (e.g., top 5) of the best-selling products across the entire platform.
+Bottom Section (Quick Access & Monitoring):
+
+Recent System Activity Log: A brief, scrollable list of the latest significant system events and administrative actions.
+User Statistics:
+Total Number of Users (with a breakdown by role, if relevant).
+Number of Inactive/Suspended Users.
+Quick Links/Actions: Buttons for frequently used super admin tasks:
+"Add New User"
+"Manage User Roles"
+"View System Settings"
+"Run System Backup"
+Key Design Principles for Super Admin Dashboard:
+
+At-a-Glance Insights: Prioritizing high-level metrics and summaries that provide an immediate understanding of the system's state.
+Actionable Information: Highlighting areas that may require the super admin's attention.
+Centralized Overview: Consolidating key data from all users and aspects of the platform.
+Efficiency: Providing quick access to critical administrative tools and settings.
+Clear Visual Hierarchy: Using visual cues to differentiate important information and sections.
+Essentially, the super admin dashboard acts as a central command center, providing a real-time snapshot of the platform's health, performance, and user base, along with quick access to essential management tools.

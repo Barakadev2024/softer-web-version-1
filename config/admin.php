@@ -85,7 +85,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title' => 'Admin',
+    'title' => 'www.softa.co.tz',
 
     /*
     |--------------------------------------------------------------------------
@@ -311,7 +311,7 @@ return [
     | each page
     |
     */
-    'show_version' => false,
+     'show_version' => false,
     /*
     |--------------------------------------------------------------------------
     | Remove "Powered by laravel-admin" footer
@@ -321,7 +321,7 @@ return [
     | from the footer of the dashboard.
     |
     */
-    'show_powered_by' => false,
+     'show_powered_by' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -411,11 +411,14 @@ return [
     | Settings for extensions.
     |--------------------------------------------------------------------------
     |
-    | You can find all available extensions here
-    | https://github.com/laravel-admin-extensions.
     |
     */
     'extensions' => [
+        'chartjs' => [
+        
+            // Set to `false` if you want to disable this extension
+            'enable' => true,
+        ]
 
     ],
 ];

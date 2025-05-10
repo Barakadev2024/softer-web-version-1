@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'super_admin',
             'company_id' => null, // Super Admin does not belong to a specific company
             'created_at' => now(),
-            'updated_at' => now(),
+'updated_at' => now()            ,
         ]);
     }
 }
